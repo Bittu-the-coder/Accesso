@@ -181,7 +181,59 @@
           }
         });
 
-      // Download function
+      // // Download function
+      // document
+      //   .getElementById("fetchBtn")
+      //   .addEventListener("click", async () => {
+      //     const id = document.getElementById("downloadId").value.trim();
+      //     const fileListDiv = document.getElementById("fileList");
+      //     const filesContainer = document.getElementById("filesContainer");
+      //     const statusDiv = document.getElementById("downloadStatus");
+
+      //     if (!id) {
+      //       showStatus(statusDiv, "Please enter an ID", "error");
+      //       return;
+      //     }
+
+      //     try {
+      //       showStatus(statusDiv, "Fetching files...", "loading");
+      //       fileListDiv.classList.add("hidden");
+
+      //       const response = await fetch(`/api/files/${id}`);
+      //       const result = await response.json();
+
+      //       if (response.ok && result.files?.length > 0) {
+      //         filesContainer.innerHTML = result.files
+      //           .map(
+      //             (file) => `
+      //       <li class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+      //         <div>
+      //           <div class="font-medium">${file.name}</div>
+      //           <div class="text-xs text-gray-500">${formatBytes(
+      //             file.size
+      //           )} • ${new Date(file.uploaded).toLocaleTimeString()}</div>
+      //         </div>
+      //         <a href="/api/download/${id}/${encodeURIComponent(file.name)}"
+      //            class="bg-blue-600 hover:bg-blue-700 text-white text-sm py-1 px-3 rounded-lg transition duration-200">
+      //           Download
+      //         </a>
+      //       </li>
+      //     `
+      //           )
+      //           .join("");
+
+      //         fileListDiv.classList.remove("hidden");
+      //         showStatus(statusDiv, "", "");
+      //       } else {
+      //         showStatus(statusDiv, result.error || "No files found", "error");
+      //       }
+      //     } catch (error) {
+      //       showStatus(statusDiv, "Error fetching files", "error");
+      //       console.error("Fetch error:", error);
+      //     }
+      //   });
+
+      // Update your fetchBtn click handler:
       document
         .getElementById("fetchBtn")
         .addEventListener("click", async () => {
@@ -206,19 +258,20 @@
               filesContainer.innerHTML = result.files
                 .map(
                   (file) => `
-            <li class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
-              <div>
-                <div class="font-medium">${file.name}</div>
-                <div class="text-xs text-gray-500">${formatBytes(
-                  file.size
-                )} • ${new Date(file.uploaded).toLocaleTimeString()}</div>
-              </div>
-              <a href="/api/download/${id}/${encodeURIComponent(file.name)}" 
-                 class="bg-blue-600 hover:bg-blue-700 text-white text-sm py-1 px-3 rounded-lg transition duration-200">
-                Download
-              </a>
-            </li>
-          `
+        <li class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+          <div>
+            <div class="font-medium">${file.originalname}</div>
+            <div class="text-xs text-gray-500">
+              ${formatBytes(file.size)} • 
+              ${new Date(file.uploaded).toLocaleString()}
+            </div>
+          </div>
+          <a href="/api/download/${id}/${encodeURIComponent(file.filename)}" 
+             class="bg-blue-600 hover:bg-blue-700 text-white text-sm py-1 px-3 rounded-lg transition duration-200">
+            Download
+          </a>
+        </li>
+      `
                 )
                 .join("");
 
