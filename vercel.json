@@ -1,31 +1,13 @@
 {
-  "version": 2,
-  "builds": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "pnpm install",
+  "regions": ["iad1"],
+  "crons": [
     {
-      "src": "public/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "api/transfer.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "public/index.html"
-    },
-    {
-      "src": "/api/upload",
-      "dest": "api/transfer.js"
-    },
-    {
-      "src": "/api/files/(.*)",
-      "dest": "api/transfer.js"
-    },
-    {
-      "src": "/api/download/(.*)",
-      "dest": "api/transfer.js"
+      "path": "/api/cleanup",
+      "schedule": "0 */6 * * *"
     }
   ]
 }

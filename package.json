@@ -1,28 +1,47 @@
 {
-  "name": "accesso",
-  "version": "1.0.0",
-  "description": "A cloud-based file transfer service using IDs",
-  "main": "server.js",
+  "name": "accesso-saas",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "aws-sdk": "^2.1235.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.21.2",
-    "multer": "^1.4.5-lts.1",
-    "uuid": "^9.0.0"
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@supabase/supabase-js": "^2.50.0",
+    "@imagekit/nodejs": "^7.3.0",
+    "nanoid": "^5.0.0",
+    "zustand": "^5.0.3",
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.468.0",
+    "react-hot-toast": "^2.4.1",
+    "next-themes": "^0.4.4",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.2",
+    "class-variance-authority": "^0.7.1",
+    "crypto-js": "^4.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.6",
+    "@types/react-dom": "^19.0.2",
+    "@types/crypto-js": "^4.2.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.1.6"
+  }
 }
